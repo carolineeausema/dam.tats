@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NAV_LINKS, SITE } from "@/lib/site-config";
+import { NAV_LINKS } from "@/lib/site-config";
 
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -18,7 +18,7 @@ export default function Nav() {
       <header className="sticky top-0 z-40 hidden border-b border-stone-light bg-cream/95 backdrop-blur md:block">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-8 py-5">
           <Link href="/" className="font-serif text-xl text-charcoal">
-            {SITE.name}
+            DAM
           </Link>
           <nav className="flex items-center gap-6">
             {NAV_LINKS.filter((link) => link.href !== "/booking").map(
@@ -36,12 +36,6 @@ export default function Nav() {
                 </Link>
               ),
             )}
-            <a
-              href={`mailto:${SITE.email}`}
-              className="text-sm text-stone hover:text-forest"
-            >
-              {SITE.email}
-            </a>
             <Link
               href="/booking"
               className="rounded-full bg-forest px-5 py-2 text-sm font-medium text-cream transition-colors hover:bg-bark"

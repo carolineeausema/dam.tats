@@ -11,17 +11,16 @@ export const SITE = {
   location: "Sacramento, CA",
   // Inferred from a studio photo (neon "WILD SOUL" sign), confirm the exact name.
   studioName: "Wild Soul",
-  addressLine1: "[TODO: street address]",
-  addressLine2: "[TODO: city, state zip]",
+  addressLine1: "1195 Florin Rd ste 3",
+  addressLine2: "Sacramento, California 95931",
 } as const;
 
 type NavLink = { href: string; label: string; shortLabel?: string };
 
 export const NAV_LINKS: NavLink[] = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
   { href: "/faq", label: "Info & FAQ", shortLabel: "FAQ" },
   { href: "/portfolio", label: "Portfolio", shortLabel: "Work" },
-  { href: "/flash", label: "Flash" },
+  { href: "/flash", label: "Designs" },
   { href: "/booking", label: "Book" },
 ];

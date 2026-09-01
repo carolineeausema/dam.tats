@@ -1,6 +1,6 @@
 import Link from "next/link";
 import SiteFooter from "@/components/SiteFooter";
-import { faqCategories, recommendedArtists } from "@/lib/content";
+import { faqCategories } from "@/lib/content";
 import { SITE } from "@/lib/site-config";
 
 export default function FaqPage() {
@@ -35,29 +35,6 @@ export default function FaqPage() {
               </div>
             </section>
           ))}
-
-          <section>
-            <h2 className="mb-3 font-serif text-xl text-charcoal">
-              Recommended Artists
-            </h2>
-            <p className="mb-4 text-sm text-stone">
-              Not the right fit, or booked out? A few other artists worth
-              checking out.
-            </p>
-            <div className="flex flex-col divide-y divide-stone-light border-y border-stone-light">
-              {recommendedArtists.map((artist) => (
-                <div key={artist.id} className="py-4">
-                  <p className="font-medium text-charcoal">
-                    {artist.name}{" "}
-                    <span className="font-normal text-stone">
-                      {artist.instagram}
-                    </span>
-                  </p>
-                  <p className="text-sm text-stone">{artist.note}</p>
-                </div>
-              ))}
-            </div>
-          </section>
 
           <section className="rounded-2xl border border-stone-light bg-stone-light/20 p-6 text-center">
             <h2 className="mb-2 font-serif text-xl text-charcoal">

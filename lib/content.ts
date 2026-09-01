@@ -40,7 +40,7 @@ export const flashItems: PortfolioItem[] = Array.from(
   { length: 8 },
   (_, i) => ({
     id: `flash-${i + 1}`,
-    title: `Flash design ${i + 1}`,
+    title: `Design ${i + 1}`,
     size: "3 in",
     year: "2025",
     aspect: aspects[i % aspects.length],
@@ -96,12 +96,12 @@ export const faqCategories: FaqCategory[] = [
       {
         question: "Where should I park?",
         answer:
-          "There's paid street parking out front. A few nearby streets have free, non-permitted parking, so use your best judgment.",
+          "There's a parking lot right out front, but it it's full, you can usually park across the street in the bigger lot.",
       },
       {
         question: "How long until I hear back?",
         answer:
-          "It usually takes about a week to hear back on a new booking request. Appointments themselves tend to book out further, but he'll get back to you as soon as he can.",
+          "Within a week, unless it's the summer months. Appointments themselves tend to book out further, but he'll get back to you as soon as he can.",
       },
       {
         question: "How much will my tattoo cost?",
@@ -117,28 +117,5 @@ export const faqCategories: FaqCategory[] = [
           "Cash is preferred, but debit and credit are both accepted. Tips are always appreciated, never expected.",
       },
     ],
-  },
-];
-
-export type RecommendedArtist = {
-  id: string;
-  name: string;
-  instagram: string;
-  note: string;
-};
-
-// TODO: add the artists Dylan actually wants to recommend.
-export const recommendedArtists: RecommendedArtist[] = [
-  {
-    id: "artist-1",
-    name: "[TODO: artist name]",
-    instagram: "[TODO: @handle]",
-    note: "[TODO: what they're known for]",
-  },
-  {
-    id: "artist-2",
-    name: "[TODO: artist name]",
-    instagram: "[TODO: @handle]",
-    note: "[TODO: what they're known for]",
   },
 ];

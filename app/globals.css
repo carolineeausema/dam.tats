@@ -18,11 +18,11 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --font-serif: var(--font-fraunces);
+  /* "font-serif" utility now maps to Rubik Broken Fax, used for every
+     heading site-wide. Name is a holdover from when Fraunces (an actual
+     serif) held this slot; kept as-is so call sites didn't need touching. */
+  --font-serif: var(--font-rubik-broken-fax);
   --font-sans: var(--font-inter);
-  /* Heavy accent face for the Home hero headline only, not a heading
-     default: it's a distressed/glitch display font. */
-  --font-display: var(--font-rubik-broken-fax);
 }
 
 body {
