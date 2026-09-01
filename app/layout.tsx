@@ -27,7 +27,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${inter.variable} ${rubikBrokenFax.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
+      <head>
+        {/* Applies a saved theme choice (if any) before first paint, so
+            returning visitors don't see a flash of the wrong theme. No
+            attribute here at all just means "follow system preference",
+            which globals.css already handles via prefers-color-scheme. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
         <Nav />
         <main className="flex flex-1 flex-col">{children}</main>

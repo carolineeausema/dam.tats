@@ -5,7 +5,11 @@
    "foreground accent" (links, outline buttons, active states) from forest
    to sage, since forest is too close in value to the dark backgrounds to
    read as text. Solid-fill accents (bg-forest buttons) stay forest in
-   both themes since cream text on top gives high contrast either way. */
+   both themes since cream text on top gives high contrast either way.
+
+   Three-way precedence: system preference is the default, but an explicit
+   choice from the toggle (a `data-theme` attribute on <html>, persisted to
+   localStorage by ThemeToggle) always wins over it in either direction. */
 :root {
   color-scheme: light dark;
   --background: #f5f1e8; /* cream */
@@ -16,13 +20,27 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --background: #2e2a24; /* charcoal */
     --foreground: #f5f1e8; /* cream */
     --border: #8c8579; /* stone */
     --link: #8a9a82; /* sage */
     --link-hover: #f5f1e8; /* cream */
   }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #2e2a24; /* charcoal */
+  --foreground: #f5f1e8; /* cream */
+  --border: #8c8579; /* stone */
+  --link: #8a9a82; /* sage */
+  --link-hover: #f5f1e8; /* cream */
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
 }
 
 @theme inline {

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "@/components/ThemeToggle";
 import { NAV_LINKS } from "@/lib/site-config";
 
 function isActive(pathname: string, href: string) {
@@ -36,6 +37,7 @@ export default function Nav() {
                 </Link>
               ),
             )}
+            <ThemeToggle className="text-lg leading-none hover:text-link" />
             <Link
               href="/booking"
               className="rounded-full bg-forest px-5 py-2 text-sm font-medium text-cream transition-colors hover:bg-bark"
@@ -65,6 +67,7 @@ export default function Nav() {
             </Link>
           );
         })}
+        <ThemeToggle className="flex min-h-14 flex-1 flex-col items-center justify-center text-lg leading-none text-stone" />
       </nav>
     </>
   );

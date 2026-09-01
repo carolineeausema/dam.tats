@@ -119,9 +119,6 @@ export default function BookingForm() {
               </span>
             </label>
           ))}
-          <p className="text-xs text-stone italic">
-            I will not copy an exact design.
-          </p>
         </fieldset>
 
         <label className={labelClass}>

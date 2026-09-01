@@ -101,7 +101,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: "How long until I hear back?",
         answer:
-          "Within a week, unless it's the summer months. I'll get back to you as soon as I can. ",
+          "Within a week, unless it's the summer months. I'll get back to you as soon as I can. 𓆣 ",
       },
       {
         question: "How much will my tattoo cost?",
@@ -114,7 +114,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: "What payment methods do you take, and is tipping expected?",
         answer:
-          "Cash is preferred, but debit and credit are both accepted. Tips are always appreciated, never expected. (fr)",
+          "Cash is preferred, but debit and credit are both accepted. Tips are always appreciated, never expected (fr).",
       },
     ],
   },
