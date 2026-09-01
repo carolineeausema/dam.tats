@@ -7,7 +7,8 @@ export const SITE = {
   instagram: "https://instagram.com/dylan.tattoo",
   instagramHandle: "@dylan.tattoo",
   location: "Sacramento, CA",
-  studioName: "[TODO: studio name]",
+  // Inferred from a studio photo (neon "WILD SOUL" sign), confirm the exact name.
+  studioName: "Wild Soul",
   addressLine1: "[TODO: street address]",
   addressLine2: "[TODO: city, state zip]",
 } as const;

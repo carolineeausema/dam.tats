@@ -49,17 +49,17 @@ export type FaqCategory = {
 export const pricingTiers = [
   {
     label: "Small",
-    range: "$400–600",
+    range: "$X–X",
     hint: "palm-sized or smaller",
   },
   {
     label: "Medium",
-    range: "$700–900",
+    range: "$X–X",
     hint: "hand-sized, or smaller pieces with heavy detail / tricky placement",
   },
   {
     label: "Large",
-    range: "$1,000+",
+    range: "$X+",
     hint: "larger than hand-sized",
   },
   {
@@ -70,7 +70,7 @@ export const pricingTiers = [
 ] as const;
 
 export const depositAmount = "$100";
-export const minimumPrice = "$200";
+export const minimumPrice = "$X";
 
 export const faqCategories: FaqCategory[] = [
   {

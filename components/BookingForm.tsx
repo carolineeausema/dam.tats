@@ -111,7 +111,7 @@ export default function BookingForm() {
         >
           <p className="font-serif text-xl text-charcoal">Just want to consult</p>
           <p className="mt-1 text-sm text-stone">
-            I have questions or a half-formed idea and want to talk it
+            I have questions or a bit of an idea and want to talk it
             through first.
           </p>
         </button>
