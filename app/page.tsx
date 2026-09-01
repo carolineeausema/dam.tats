@@ -25,7 +25,7 @@ export default function Home() {
           <p className="text-xs tracking-wide text-stone uppercase sm:text-sm">
             {SITE.tagline}
           </p>
-          <h1 className="font-serif text-xl leading-tight text-charcoal sm:text-3xl md:text-4xl">
+          <h1 className="font-display text-lg leading-snug text-charcoal sm:text-2xl md:text-3xl">
             Dedicated to pushing the boundaries of art through tattoo.
           </h1>
           <div className="flex flex-row flex-wrap justify-center gap-3">

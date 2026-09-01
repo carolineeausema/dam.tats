@@ -20,6 +20,9 @@
 
   --font-serif: var(--font-fraunces);
   --font-sans: var(--font-inter);
+  /* Heavy accent face for the Home hero headline only, not a heading
+     default: it's a distressed/glitch display font. */
+  --font-display: var(--font-rubik-broken-fax);
 }
 
 body {
@@ -27,11 +30,11 @@ body {
   color: var(--color-charcoal);
 }
 
-/* Scroll-snap sequence (Home, About intro) — deliberate, section-by-section
+/* Scroll-snap sequence (Home, About intro): deliberate, section-by-section
    advance rather than free scroll. Kept out of Tailwind's generated utility
    set since scroll-snap-type/align need to travel together as a pair. */
 /* On mobile the bottom nav is `fixed`, so the snap-scroller is sized to the
-   area above it (not the full viewport) — otherwise sections would run
+   area above it (not the full viewport); otherwise sections would run
    underneath the nav instead of stopping short of it. Desktop's nav is a
    normal top header, not an overlay, so it gets the full viewport back. */
 .snap-scroller {
