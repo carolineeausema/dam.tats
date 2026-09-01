@@ -7,6 +7,9 @@ export const SITE = {
   instagram: "https://instagram.com/dylan.tattoo",
   instagramHandle: "@dylan.tattoo",
   location: "Based in the Eastern Sierra",
+  studioName: "[TODO — studio name]",
+  addressLine1: "[TODO — street address]",
+  addressLine2: "[TODO — city, state zip]",
 } as const;
 
 export const NAV_LINKS = [

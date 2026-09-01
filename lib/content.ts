@@ -1,5 +1,9 @@
-// Placeholder content. Swap in real photos, copy, and answers as they're ready —
-// this file is the single place that feeds the portfolio grid and FAQ page.
+// Placeholder content, structured from reference copy the artist supplied
+// (adapted from another studio's site) — swap in real photos and Dylan's
+// actual wording/numbers as they're finalized. This file feeds the
+// portfolio grid, the FAQ page, and the booking form's size options.
+
+import { SITE } from "@/lib/site-config";
 
 export type PortfolioItem = {
   id: string;
@@ -40,60 +44,107 @@ export type FaqCategory = {
   items: FaqItem[];
 };
 
-// TODO: swap in the artist's real wording — keep it conversational, not clinical.
+// TODO: these figures and policies are drafted from reference copy — confirm
+// every number and adjust the wording to Dylan's actual voice.
+export const pricingTiers = [
+  {
+    label: "Small",
+    range: "$400–600",
+    hint: "palm-sized or smaller",
+  },
+  {
+    label: "Medium",
+    range: "$700–900",
+    hint: "hand-sized, or smaller pieces with heavy detail / tricky placement",
+  },
+  {
+    label: "Large",
+    range: "$1,000+",
+    hint: "larger than hand-sized",
+  },
+  {
+    label: "Multi-session",
+    range: "quoted individually",
+    hint: "sleeves, back pieces, and other larger projects",
+  },
+] as const;
+
+export const depositAmount = "$100";
+export const minimumPrice = "$200";
+
 export const faqCategories: FaqCategory[] = [
   {
-    category: "Location & parking",
+    category: "Location & basics",
     items: [
       {
-        question: "Where's the studio?",
-        answer:
-          "TODO — street address / neighborhood, plus anything that helps someone find the door.",
+        question: "Where are you located?",
+        answer: `${SITE.studioName} — ${SITE.addressLine1}, ${SITE.addressLine2}.`,
       },
       {
         question: "Where should I park?",
-        answer: "TODO — street parking, lot, anything that trips people up.",
+        answer:
+          "There's paid street parking out front. A few nearby streets have free, non-permitted parking — use your best judgment.",
+      },
+      {
+        question: "Can I see the design before my appointment?",
+        answer:
+          "No — Dylan doesn't send tattoo designs ahead of time. Because of that, be as specific as you can when you book, so he has a clear sense of what you're after. Small tweaks are fine at the start of the session, but bigger changes to composition or elements should be flagged beforehand — otherwise we'll need to reschedule, and a new deposit will be required.",
+      },
+      {
+        question: "How long until I hear back?",
+        answer:
+          "It usually takes about two weeks to hear back on a new booking request. Appointments themselves tend to book out a few months, but he'll get back to you as soon as he can.",
       },
     ],
   },
   {
-    category: "Pricing & deposit",
+    category: "Booking & pricing",
     items: [
       {
         question: "How much will my tattoo cost?",
-        answer:
-          "TODO — hourly rate / minimum, and how size and placement affect it.",
+        answer: `Pricing depends on the complexity of the design, size, and placement. As a general guide: ${minimumPrice} minimum regardless of size, ${pricingTiers[0].range} for something ${pricingTiers[0].hint}, ${pricingTiers[1].range} for ${pricingTiers[1].hint}, and ${pricingTiers[2].range} for anything ${pricingTiers[2].hint}. Placements like the neck, ribs, or hands typically cost more.`,
       },
       {
         question: "Do you require a deposit?",
+        answer: `Yes — a non-refundable ${depositAmount} deposit secures your appointment and goes toward the final cost. Your appointment isn't guaranteed until it's paid. No-shows, or cancellations with less than 48 hours' notice, forfeit the deposit. Arriving more than 15 minutes late (without prior arrangement) counts as a no-show, and a new deposit is required to rebook.`,
+      },
+      {
+        question: "What payment methods do you take, and is tipping expected?",
         answer:
-          "TODO — deposit amount, how it applies to the final price, refund policy.",
+          "Cash is preferred, but debit and credit are both accepted. Tips are always appreciated, never expected.",
+      },
+      {
+        question: "Will you copy an existing tattoo or design?",
+        answer:
+          "No — out of respect for his own work and other artists', Dylan won't copy an existing tattoo or design.",
       },
     ],
   },
   {
-    category: "Turnaround",
+    category: "Your appointment",
     items: [
       {
-        question: "How far out are you booking?",
-        answer: "TODO — current lead time, how to check availability.",
+        question: "How do I prepare for my tattoo?",
+        answer:
+          "Beforehand: moisturize the area and avoid excessive sun exposure — dry or sunburned skin may mean a reschedule and a new deposit. Day of: skip alcohol and blood thinners for 24 hours prior, eat a real meal, hydrate, and moisturize again. Wear something comfortable that gives easy access to the area, and bring whatever helps you sit for a few hours — water, snacks, a layer, headphones, something to read.",
       },
       {
-        question: "How long until I see my design?",
-        answer: "TODO — when designs are typically shared before the appointment.",
-      },
-    ],
-  },
-  {
-    category: "Payment & tipping",
-    items: [
-      {
-        question: "What payment methods do you take?",
-        answer: "TODO — cash / card / Venmo, etc.",
+        question: "How long will my appointment take?",
+        answer:
+          "It varies a lot — design, size, placement, skin, and pain tolerance all factor in. Dylan can give a rough estimate, but treat it as just that. Best not to plan anything time-sensitive right after your session.",
       },
       {
-        question: "Is tipping expected?",
-        answer: "TODO — the artist's actual take on this, in their own words.",
+        question: "Do you offer touch-ups?",
+        answer: `Yes — complimentary within the first 6 months. After that, a $100 supply fee applies. To schedule one, email a photo of the tattoo to ${SITE.email}.`,
+      },
+      {
+        question: "Do you offer consultations?",
+        answer: `Yes, for larger projects (sleeves, back pieces, etc.) — a short call to talk through scope before booking. Email ${SITE.email} to set one up, or use the "just want to consult" option on the booking page.`,
+      },
+      {
+        question: "What's the reschedule policy?",
+        answer:
+          "You can reschedule once, as long as it's at least 48 hours before your appointment. Beyond that, additional reschedules are at Dylan's discretion depending on his schedule.",
       },
     ],
   },

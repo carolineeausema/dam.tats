@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import RevealSection from "@/components/RevealSection";
@@ -11,11 +12,16 @@ export default function Home() {
     <SnapScroller>
       <RevealSection className="flex flex-col justify-center gap-6 px-6 py-8 sm:gap-8 sm:px-10 sm:py-16">
         <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-6 text-center md:flex-row md:gap-8 md:text-left">
-          <ImagePlaceholder
-            label="[Hero photo — studio or trailhead]"
-            aspect="hero"
-            className="w-full md:w-1/2"
-          />
+          <div className="relative h-[32dvh] w-full overflow-hidden sm:h-auto sm:aspect-[4/5] md:w-1/2">
+            <Image
+              src="/images/hero-dylan.jpg"
+              alt="Dylan tattooing in the studio"
+              fill
+              priority
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
           <div className="flex flex-col items-center gap-3 sm:gap-4 md:items-start">
             <p className="text-xs tracking-wide text-stone uppercase sm:text-sm">
               {SITE.tagline}
