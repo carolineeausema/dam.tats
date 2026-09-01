@@ -101,11 +101,11 @@ export const faqCategories: FaqCategory[] = [
       {
         question: "How long until I hear back?",
         answer:
-          "Within a week, unless it's the summer months. Appointments themselves tend to book out further, but he'll get back to you as soon as he can.",
+          "Within a week, unless it's the summer months. I'll get back to you as soon as I can. ",
       },
       {
         question: "How much will my tattoo cost?",
-        answer: `Pricing depends on the complexity of the design, size, and placement. As a general guide: ${minimumPrice} minimum regardless of size, ${pricingTiers[0].range} for something ${pricingTiers[0].hint}, ${pricingTiers[1].range} for ${pricingTiers[1].hint}, and ${pricingTiers[2].range} for anything ${pricingTiers[2].hint}. Placements like the neck, ribs, or hands typically cost more.`,
+        answer: `Pricing depends on the complexity of the design, size, and placement. As a general guide: ${minimumPrice} minimum regardless of size, ${pricingTiers[0].range} for something ${pricingTiers[0].hint}, ${pricingTiers[1].range} for ${pricingTiers[1].hint}, and ${pricingTiers[2].range} for anything ${pricingTiers[2].hint}. Placements like the neck, ribs, or hands typically cost more. If you have a budget that you'd like to work with, let me know and we can discuss.`,
       },
       {
         question: "Do you require a deposit?",
@@ -114,7 +114,7 @@ export const faqCategories: FaqCategory[] = [
       {
         question: "What payment methods do you take, and is tipping expected?",
         answer:
-          "Cash is preferred, but debit and credit are both accepted. Tips are always appreciated, never expected.",
+          "Cash is preferred, but debit and credit are both accepted. Tips are always appreciated, never expected. (fr)",
       },
     ],
   },

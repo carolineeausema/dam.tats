@@ -30,7 +30,7 @@ export default function ImagePlaceholder({
       className={`flex items-center justify-center border border-dashed p-4 text-center text-sm italic ${ASPECT_CLASSES[aspect]} ${
         dark
           ? "border-stone/40 bg-bark text-stone"
-          : "border-stone-light bg-stone-light/40 text-stone"
+          : "border-border bg-stone-light/40 text-stone"
       } ${className}`}
     >
       {label}

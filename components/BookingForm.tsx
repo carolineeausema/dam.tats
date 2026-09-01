@@ -50,9 +50,9 @@ function buildMailto(isConsult: boolean, data: FormData) {
 }
 
 const fieldClass =
-  "rounded-lg border border-stone-light bg-cream px-4 py-2.5 text-charcoal outline-none focus:border-forest";
-const labelClass = "flex flex-col gap-1.5 text-sm text-charcoal";
-const radioRowClass = "flex items-start gap-2 text-sm text-charcoal";
+  "rounded-lg border border-border bg-background px-4 py-2.5 text-foreground outline-none focus:border-link";
+const labelClass = "flex flex-col gap-1.5 text-sm text-foreground";
+const radioRowClass = "flex items-start gap-2 text-sm text-foreground";
 
 export default function BookingForm() {
   const searchParams = useSearchParams();
@@ -66,12 +66,12 @@ export default function BookingForm() {
 
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-6">
-      <label className="flex items-start gap-3 rounded-2xl border border-stone-light bg-stone-light/20 p-4 text-sm text-charcoal">
+      <label className="flex items-start gap-3 rounded-2xl border border-border bg-stone-light/20 p-4 text-sm text-foreground">
         <input
           type="checkbox"
           checked={isConsult}
           onChange={(e) => setIsConsult(e.target.checked)}
-          className="mt-0.5 accent-forest"
+          className="mt-0.5 accent-link"
         />
         <span>
           <span className="font-medium">Just want to consult?</span>{" "}
@@ -83,7 +83,7 @@ export default function BookingForm() {
       </label>
 
       <div className="flex flex-col gap-3">
-        <p className="font-serif text-lg text-charcoal">Contact</p>
+        <p className="font-serif text-lg text-foreground">Contact</p>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <label className={labelClass}>
             Name
@@ -97,10 +97,10 @@ export default function BookingForm() {
       </div>
 
       <div className="flex flex-col gap-3">
-        <p className="font-serif text-lg text-charcoal">Tattoo</p>
+        <p className="font-serif text-lg text-foreground">Tattoo</p>
 
         <fieldset className="flex flex-col gap-2">
-          <legend className="mb-1 text-sm text-charcoal">
+          <legend className="mb-1 text-sm text-foreground">
             Design flexibility
           </legend>
           {FLEXIBILITY_OPTIONS.map((opt) => (
@@ -110,7 +110,7 @@ export default function BookingForm() {
                 name="flexibility"
                 value={opt.value}
                 required={!isConsult}
-                className="mt-1 accent-forest"
+                className="mt-1 accent-link"
               />
               <span>
                 <span className="font-medium">{opt.label}</span>
@@ -185,23 +185,23 @@ export default function BookingForm() {
       </div>
 
       <div className="flex flex-col gap-3">
-        <p className="font-serif text-lg text-charcoal">Schedule</p>
+        <p className="font-serif text-lg text-foreground">Schedule</p>
 
         <fieldset className="flex flex-col gap-2">
-          <legend className="mb-1 text-sm text-charcoal">
+          <legend className="mb-1 text-sm text-foreground">
             General availability
           </legend>
           <div className="flex flex-wrap gap-3">
             {AVAILABILITY_DAYS.map((day) => (
               <label
                 key={day}
-                className="flex items-center gap-1.5 text-sm text-charcoal"
+                className="flex items-center gap-1.5 text-sm text-foreground"
               >
                 <input
                   type="checkbox"
                   name="availability"
                   value={day}
-                  className="accent-forest"
+                  className="accent-link"
                 />
                 {day}
               </label>
@@ -210,7 +210,7 @@ export default function BookingForm() {
         </fieldset>
 
         <fieldset className="flex flex-col gap-2">
-          <legend className="mb-1 text-sm text-charcoal">
+          <legend className="mb-1 text-sm text-foreground">
             Has Dylan tattooed you before?
           </legend>
           <div className="flex gap-4">
@@ -221,7 +221,7 @@ export default function BookingForm() {
                   name="returning"
                   value={opt}
                   required
-                  className="mt-1 accent-forest"
+                  className="mt-1 accent-link"
                 />
                 {opt}
               </label>

@@ -24,13 +24,13 @@ export default function Home() {
           <p className="text-xs tracking-wide text-stone uppercase sm:text-sm">
             {SITE.tagline}
           </p>
-          <h1 className="font-serif text-lg leading-snug text-charcoal sm:text-2xl md:text-3xl">
+          <h1 className="font-serif text-lg leading-snug text-foreground sm:text-2xl md:text-3xl">
             Dedicated to pushing the boundaries of art through tattoo.
           </h1>
           <div className="flex flex-row flex-wrap justify-center gap-3 md:justify-start">
             <Link
               href="/portfolio"
-              className="rounded-full border border-forest px-5 py-2.5 text-sm font-medium text-forest transition-colors hover:bg-forest hover:text-cream"
+              className="rounded-full border border-link px-5 py-2.5 text-sm font-medium text-link transition-colors hover:bg-forest hover:text-cream"
             >
               View Portfolio
             </Link>
@@ -43,7 +43,7 @@ export default function Home() {
           </div>
           <a
             href={`mailto:${SITE.email}`}
-            className="text-sm font-medium text-forest hover:text-bark"
+            className="text-sm font-medium text-link hover:text-link-hover"
           >
             {SITE.email}
           </a>
@@ -83,16 +83,16 @@ export default function Home() {
           Tattoo History
         </p>
         <p className="max-w-xl text-left text-sm leading-relaxed text-cream sm:text-base">
-          Dylan got started at Hard2Love Tattoo in Sacramento, CA, then moved to Wild Soul Tattoo. He&apos;s been tattooing for a little over 2 years, and is most interested in biomechanical and realism work.        </p>
+          Dylan got started at Hard2Love Tattoo in Sacramento, CA, then moved to Wild Soul Tattoo. He&apos;s been tattooing for a little over 2 years, and is most interested in biomechanical and realism work. ༼;´༎ຶ ۝ ༎ຶ༽       </p>
       </RevealSection>
 
       <RevealSection className="flex flex-col justify-center gap-8 px-6 py-8 sm:px-10 sm:py-16">
         <div className="mx-auto w-full max-w-4xl">
           <div className="mb-8 flex items-end justify-between">
-            <h2 className="font-serif text-3xl text-charcoal">Recent work</h2>
+            <h2 className="font-serif text-3xl text-foreground">Recent work</h2>
             <Link
               href="/portfolio"
-              className="text-sm font-medium text-forest hover:text-bark"
+              className="text-sm font-medium text-link hover:text-link-hover"
             >
               View full portfolio →
             </Link>
@@ -120,7 +120,7 @@ export default function Home() {
             className="h-[32dvh] w-auto flex-shrink-0 sm:h-[55dvh]"
           />
           <div className="flex flex-col items-center gap-4 sm:items-start">
-            <h2 className="font-serif text-3xl text-charcoal sm:text-4xl">
+            <h2 className="font-serif text-3xl text-foreground sm:text-4xl">
               Let&apos;s talk about it
             </h2>
             <p className="max-w-md text-stone">
@@ -132,11 +132,11 @@ export default function Home() {
                 href="/booking"
                 className="rounded-full bg-forest px-6 py-3 text-sm font-medium text-cream transition-colors hover:bg-bark"
               >
-                Start a booking
+                Start a booking 𓆣
               </Link>
               <a
                 href={`mailto:${SITE.email}`}
-                className="rounded-full border border-stone-light px-6 py-3 text-sm font-medium text-charcoal transition-colors hover:border-forest hover:text-forest"
+                className="rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-link hover:text-link"
               >
                 {SITE.email}
               </a>

@@ -1,6 +1,6 @@
 // TODO: replace remaining placeholder values below with the real details.
 export const SITE = {
-  name: "Dylan",
+  name: "DAMTATS",
   title: "Dylan, Tattoo Artist in Sacramento, CA",
   tagline: "Tattoo Artist · Sacramento, CA",
   // "damntats" to match the @damnedtats Instagram handle. Flagging in case
@@ -11,7 +11,7 @@ export const SITE = {
   location: "Sacramento, CA",
   // Inferred from a studio photo (neon "WILD SOUL" sign), confirm the exact name.
   studioName: "Wild Soul",
-  addressLine1: "1195 Florin Rd ste 3",
+  addressLine1: "1195 Florin Rd Ste 3",
   addressLine2: "Sacramento, California 95931",
 } as const;
 

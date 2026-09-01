@@ -15,9 +15,9 @@ export default function Nav() {
   return (
     <>
       {/* Desktop / wide viewport: top nav */}
-      <header className="sticky top-0 z-40 hidden border-b border-stone-light bg-cream/95 backdrop-blur md:block">
+      <header className="sticky top-0 z-40 hidden border-b border-border bg-background/95 backdrop-blur md:block">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-8 py-5">
-          <Link href="/" className="font-serif text-xl text-charcoal">
+          <Link href="/" className="font-serif text-xl text-foreground">
             DAM
           </Link>
           <nav className="flex items-center gap-6">
@@ -28,8 +28,8 @@ export default function Nav() {
                   href={link.href}
                   className={`text-sm transition-colors ${
                     isActive(pathname, link.href)
-                      ? "text-forest font-medium"
-                      : "text-charcoal hover:text-forest"
+                      ? "text-link font-medium"
+                      : "text-foreground hover:text-link"
                   }`}
                 >
                   {link.label}
@@ -48,7 +48,7 @@ export default function Nav() {
 
       {/* Mobile: thumb-reachable bottom bar */}
       <nav
-        className="fixed inset-x-0 bottom-0 z-40 flex border-t border-stone-light bg-cream/95 backdrop-blur md:hidden"
+        className="fixed inset-x-0 bottom-0 z-40 flex border-t border-border bg-background/95 backdrop-blur md:hidden"
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
         {NAV_LINKS.map((link) => {
@@ -58,7 +58,7 @@ export default function Nav() {
               key={link.href}
               href={link.href}
               className={`flex min-h-14 flex-1 flex-col items-center justify-center gap-0.5 px-0.5 text-[11px] transition-colors ${
-                active ? "text-forest font-medium" : "text-stone"
+                active ? "text-link font-medium" : "text-stone"
               }`}
             >
               {link.shortLabel ?? link.label}

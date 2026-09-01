@@ -28,7 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${inter.variable} ${rubikBrokenFax.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-cream font-sans text-charcoal">
+      <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
         <Nav />
         <main className="flex flex-1 flex-col">{children}</main>
       </body>

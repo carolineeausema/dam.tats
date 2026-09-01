@@ -1,8 +1,28 @@
 @import "tailwindcss";
 
+/* Same 7-color palette in both themes (per the original brief), just
+   reassigned: dark mode swaps the cream/charcoal roles and moves the
+   "foreground accent" (links, outline buttons, active states) from forest
+   to sage, since forest is too close in value to the dark backgrounds to
+   read as text. Solid-fill accents (bg-forest buttons) stay forest in
+   both themes since cream text on top gives high contrast either way. */
 :root {
-  --background: #f5f1e8;
-  --foreground: #2e2a24;
+  color-scheme: light dark;
+  --background: #f5f1e8; /* cream */
+  --foreground: #2e2a24; /* charcoal */
+  --border: #ddd6c8; /* stone-light */
+  --link: #3f5443; /* forest */
+  --link-hover: #3a332b; /* bark */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #2e2a24; /* charcoal */
+    --foreground: #f5f1e8; /* cream */
+    --border: #8c8579; /* stone */
+    --link: #8a9a82; /* sage */
+    --link-hover: #f5f1e8; /* cream */
+  }
 }
 
 @theme inline {
@@ -15,8 +35,12 @@
   --color-stone: #8c8579;
   --color-stone-light: #ddd6c8;
 
+  /* Theme-aware roles, built from the palette above */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-link: var(--link);
+  --color-link-hover: var(--link-hover);
 
   /* "font-serif" utility now maps to Rubik Broken Fax, used for every
      heading site-wide. Name is a holdover from when Fraunces (an actual
@@ -26,8 +50,8 @@
 }
 
 body {
-  background: var(--color-cream);
-  color: var(--color-charcoal);
+  background: var(--color-background);
+  color: var(--color-foreground);
 }
 
 /* Scroll-snap sequence (Home, About intro): deliberate, section-by-section

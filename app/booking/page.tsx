@@ -9,7 +9,7 @@ export default function BookingPage() {
     <div className="flex flex-1 flex-col pb-24 md:pb-0">
       <div className="mx-auto w-full max-w-2xl px-6 py-12 sm:px-10">
         <div className="mb-10 text-center">
-          <h1 className="font-serif text-4xl text-charcoal">
+          <h1 className="font-serif text-4xl text-foreground">
             Let&apos;s figure out what you want
           </h1>
           <p className="mt-2 text-stone">
@@ -17,7 +17,7 @@ export default function BookingPage() {
             just a few questions.{" "}
             <Link
               href="/faq"
-              className="font-medium text-forest hover:text-bark"
+              className="font-medium text-link hover:text-link-hover"
             >
               Pricing, deposit, and turnaround are answered here
             </Link>
@@ -27,8 +27,8 @@ export default function BookingPage() {
 
         {/* TODO: swap in Dylan's actual current focus, or remove this block
             if he'd rather not narrow submissions. */}
-        <div className="mb-10 rounded-2xl border border-stone-light bg-stone-light/20 p-6">
-          <p className="mb-2 font-serif text-lg text-charcoal">
+        <div className="mb-10 rounded-2xl border border-border bg-stone-light/20 p-6">
+          <p className="mb-2 font-serif text-lg text-foreground">
             Currently prioritizing
           </p>
           <ul className="list-disc space-y-1 pl-5 text-sm text-stone">
@@ -46,7 +46,7 @@ export default function BookingPage() {
           Prefer email? Reach me directly at{" "}
           <a
             href={`mailto:${SITE.email}`}
-            className="font-medium text-forest hover:text-bark"
+            className="font-medium text-link hover:text-link-hover"
           >
             {SITE.email}
           </a>

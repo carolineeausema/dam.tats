@@ -7,7 +7,7 @@ export default function FlashPage() {
     <div className="flex flex-1 flex-col pb-24 md:pb-0">
       <div className="mx-auto w-full max-w-5xl px-6 py-12 sm:px-10">
         <div className="mb-10 text-center">
-          <h1 className="font-serif text-4xl text-charcoal">
+          <h1 className="font-serif text-4xl text-foreground">
             Design Book &amp; Commissions
           </h1>
           <p className="mx-auto mt-2 max-w-lg text-stone">
