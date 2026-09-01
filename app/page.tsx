@@ -139,7 +139,7 @@ export default function Home() {
           width={800}
           height={1200}
           sizes="(min-width: 768px) 55vw, 100vw"
-          className="h-auto w-full flex-shrink-0 object-contain md:h-[100dvh] md:w-auto md:max-w-[50%]"
+          className="h-[34dvh] w-auto flex-shrink-0 object-contain md:h-[100dvh] md:w-auto md:max-w-[50%]"
         />
       </RevealSection>
     </SnapScroller>
