@@ -51,8 +51,11 @@ function buildMailto(isConsult: boolean, data: FormData) {
 
 const fieldClass =
   "rounded-lg border border-border bg-background px-4 py-2.5 text-foreground outline-none focus:border-link";
-const labelClass = "flex flex-col gap-1.5 text-sm text-foreground";
+const labelClass = "flex flex-col gap-2 text-sm text-foreground";
 const radioRowClass = "flex items-start gap-2 text-sm text-foreground";
+const sectionClass =
+  "flex flex-col gap-5 border-t border-border pt-8 first:border-t-0 first:pt-0";
+const sectionHeadingClass = "font-serif text-xl text-foreground";
 
 export default function BookingForm() {
   const searchParams = useSearchParams();
@@ -65,7 +68,7 @@ export default function BookingForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-6">
+    <form onSubmit={onSubmit} className="flex flex-col gap-8">
       <label className="flex items-start gap-3 rounded-2xl border border-border bg-stone-light/20 p-4 text-sm text-foreground">
         <input
           type="checkbox"
@@ -82,8 +85,8 @@ export default function BookingForm() {
         </span>
       </label>
 
-      <div className="flex flex-col gap-3">
-        <p className="font-serif text-lg text-foreground">Contact</p>
+      <div className={sectionClass}>
+        <p className={sectionHeadingClass}>Contact</p>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <label className={labelClass}>
             Name
@@ -96,10 +99,10 @@ export default function BookingForm() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-3">
-        <p className="font-serif text-lg text-foreground">Tattoo</p>
+      <div className={sectionClass}>
+        <p className={sectionHeadingClass}>Tattoo</p>
 
-        <fieldset className="flex flex-col gap-2">
+        <fieldset className="flex flex-col gap-3">
           <legend className="mb-1 text-sm text-foreground">
             Design flexibility
           </legend>
@@ -181,10 +184,10 @@ export default function BookingForm() {
         </label>
       </div>
 
-      <div className="flex flex-col gap-3">
-        <p className="font-serif text-lg text-foreground">Schedule</p>
+      <div className={sectionClass}>
+        <p className={sectionHeadingClass}>Schedule</p>
 
-        <fieldset className="flex flex-col gap-2">
+        <fieldset className="flex flex-col gap-3">
           <legend className="mb-1 text-sm text-foreground">
             General availability
           </legend>
@@ -206,7 +209,7 @@ export default function BookingForm() {
           </div>
         </fieldset>
 
-        <fieldset className="flex flex-col gap-2">
+        <fieldset className="flex flex-col gap-3">
           <legend className="mb-1 text-sm text-foreground">
             Has Dylan tattooed you before?
           </legend>
@@ -237,16 +240,18 @@ export default function BookingForm() {
         </label>
       </div>
 
-      <button
-        type="submit"
-        className="mt-2 self-start rounded-full bg-forest px-6 py-3 text-sm font-medium text-cream transition-colors hover:bg-bark"
-      >
-        Send
-      </button>
-      <p className="text-xs text-stone">
-        This opens your email app with the details filled in. Nothing is
-        sent automatically.
-      </p>
+      <div className="flex flex-col gap-3 border-t border-border pt-8">
+        <button
+          type="submit"
+          className="self-start rounded-full bg-forest px-6 py-3 text-sm font-medium text-cream transition-colors hover:bg-bark"
+        >
+          Send
+        </button>
+        <p className="text-xs text-stone">
+          This opens your email app with the details filled in. Nothing is
+          sent automatically.
+        </p>
+      </div>
     </form>
   );
 }
