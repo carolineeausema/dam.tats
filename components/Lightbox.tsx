@@ -169,7 +169,7 @@ export default function Lightbox({ item, onClose }: Props) {
         </div>
       </div>
 
-      <div className="px-6 py-5 text-center text-cream">
+      <div className="px-6 py-5 text-left text-cream">
         <p className="font-serif text-lg">{item.title}</p>
         <p className="text-sm text-stone">
           {item.size} &middot; {item.year}

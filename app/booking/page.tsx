@@ -8,7 +8,7 @@ export default function BookingPage() {
   return (
     <div className="flex flex-1 flex-col pb-24 md:pb-0">
       <div className="mx-auto w-full max-w-2xl px-6 py-12 sm:px-10">
-        <div className="mb-10 text-center">
+        <div className="mb-10 text-left">
           <h1 className="font-serif text-4xl text-foreground">
             Let&apos;s figure out what you want
           </h1>
@@ -42,7 +42,7 @@ export default function BookingPage() {
           <BookingForm />
         </Suspense>
 
-        <p className="mt-10 text-center text-sm text-stone">
+        <p className="mt-10 text-left text-sm text-stone">
           Prefer email? Reach me directly at{" "}
           <a
             href={`mailto:${SITE.email}`}

@@ -7,7 +7,7 @@ export default function FaqPage() {
   return (
     <div className="flex flex-1 flex-col pb-24 md:pb-0">
       <div className="mx-auto w-full max-w-2xl px-6 py-12 sm:px-10">
-        <div className="mb-10 text-center">
+        <div className="mb-10 text-left">
           <h1 className="font-serif text-4xl text-foreground">Info &amp; FAQ</h1>
           <p className="mt-2 text-stone">
             The stuff worth knowing before you fill out the booking form.
@@ -36,7 +36,7 @@ export default function FaqPage() {
             </section>
           ))}
 
-          <section className="rounded-2xl border border-border bg-stone-light/20 p-6 text-center">
+          <section className="rounded-2xl border border-border bg-stone-light/20 p-6 text-left">
             <h2 className="mb-2 font-serif text-xl text-foreground">
               Not sure yet?
             </h2>
@@ -53,7 +53,7 @@ export default function FaqPage() {
           </section>
         </div>
 
-        <p className="mt-12 text-center text-stone">
+        <p className="mt-12 text-left text-stone">
           Still have a question?{" "}
           <a
             href={`mailto:${SITE.email}`}
