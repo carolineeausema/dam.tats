@@ -3,7 +3,7 @@ const ASPECT_CLASSES = {
   square: "aspect-square",
   landscape: "aspect-[3/2]",
   // Height is capped relative to viewport height (not width) so these stay
-  // compact on short, narrow phones — a width-based aspect ratio would blow
+  // compact on short, narrow phones. A width-based aspect ratio would blow
   // past the viewport on a tall image, which breaks scroll-snap physics.
   hero: "h-[24dvh] sm:h-auto sm:aspect-[16/9]",
   heroPortrait: "h-[24dvh] sm:h-auto sm:aspect-[4/5]",
@@ -17,7 +17,7 @@ type Props = {
 };
 
 // Stand-in for a real photo. Swap the parent's <ImagePlaceholder> for a
-// next/image once photos are in — same aspect ratios are used throughout so
+// next/image once photos are in. Same aspect ratios are used throughout so
 // layout won't shift when that happens.
 export default function ImagePlaceholder({
   label,

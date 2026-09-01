@@ -12,7 +12,7 @@ export default function BookingPage() {
             Let&apos;s figure out what you want
           </h1>
           <p className="mt-2 text-stone">
-            No pressure either way — pick whichever fits.{" "}
+            No pressure either way, pick whichever fits.{" "}
             <Link
               href="/faq"
               className="font-medium text-forest hover:text-bark"
@@ -30,9 +30,9 @@ export default function BookingPage() {
             Currently prioritizing
           </p>
           <ul className="list-disc space-y-1 pl-5 text-sm text-stone">
-            <li>[TODO — project type, e.g. large black &amp; grey pieces]</li>
-            <li>[TODO — project type, e.g. fine-line work]</li>
-            <li>[TODO — project type]</li>
+            <li>[TODO: project type, e.g. large black &amp; grey pieces]</li>
+            <li>[TODO: project type, e.g. fine-line work]</li>
+            <li>[TODO: project type]</li>
           </ul>
         </div>
 

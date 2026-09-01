@@ -4,7 +4,6 @@ import RevealSection from "@/components/RevealSection";
 import SnapScroller from "@/components/SnapScroller";
 import { SITE } from "@/lib/site-config";
 
-// Draft copy — swap in Dylan's real bio, in their own words.
 export default function AboutPage() {
   return (
     <SnapScroller>
@@ -19,19 +18,34 @@ export default function AboutPage() {
             <h1 className="font-serif text-3xl text-charcoal sm:text-5xl">
               {SITE.name}
             </h1>
-            <p className="max-w-md text-sm text-stone sm:text-base">
-              [TODO — one or two sentences in Dylan&apos;s own words on how
-              tattooing and mountain guiding fit together.]
+            <p className="text-xs tracking-wide text-stone uppercase sm:text-sm">
+              {SITE.tagline}
             </p>
           </div>
         </div>
       </RevealSection>
 
       <RevealSection className="flex flex-col items-center justify-center gap-6 bg-bark px-6 py-8 text-center sm:py-16">
-        <p className="max-w-2xl font-serif text-lg leading-relaxed text-cream sm:text-2xl">
-          [TODO — bio paragraph: background, how they got into tattooing,
-          what draws them to the work. Keep it conversational, in their
-          actual phrasing rather than marketing copy.]
+        <p className="max-w-2xl font-serif text-lg leading-relaxed text-cream italic sm:text-2xl">
+          &ldquo;Based in Sacramento, CA, Dylan approaches tattooing as a
+          transformation. Every piece is a chance to push what tattoo art can
+          be, and to give clients something that changes how they carry
+          themselves in the world.&rdquo;
+        </p>
+      </RevealSection>
+
+      <RevealSection className="flex flex-col items-center justify-center gap-6 px-6 py-8 text-center sm:py-16">
+        <p className="max-w-xl text-left text-sm leading-relaxed text-stone sm:text-base">
+          Before tattooing, Dylan earned a BA in Philosophy and started
+          working as a mountain guide for people with Type 1 diabetes in the
+          Sierra Nevada. That background still shapes how he works: patient,
+          attentive to detail, comfortable helping someone navigate something
+          unfamiliar. Guiding also taught him to pay close attention, go
+          somewhere new, and come back different, which isn&apos;t so far
+          from how he thinks about a tattoo. Living with Type 1 diabetes
+          himself has shaped how he thinks about the body too: care,
+          adaptation, and resilience are all part of what he brings to
+          tattooing as a transformative process.
         </p>
       </RevealSection>
 

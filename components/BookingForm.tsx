@@ -31,7 +31,7 @@ function buildBookMailto(data: FormData) {
   const get = (key: string) => (data.get(key) as string)?.trim();
   const days = data.getAll("availability").join(", ");
 
-  const subject = `Booking inquiry — ${get("firstName")} ${get("lastName")}`;
+  const subject = `Booking inquiry: ${get("firstName")} ${get("lastName")}`;
   const lines = [
     `Name: ${get("firstName")} ${get("lastName")}`,
     get("pronouns") && `Pronouns: ${get("pronouns")}`,
@@ -42,7 +42,7 @@ function buildBookMailto(data: FormData) {
     `Placement: ${get("placement")}`,
     `Size: ${get("size")}`,
     "",
-    `Availability: ${days || "—"}`,
+    `Availability: ${days || "none selected"}`,
     `Tattooed by Dylan before: ${get("returning")}`,
     get("comments") && `Comments: ${get("comments")}`,
     get("references") && `References: ${get("references")}`,
@@ -54,7 +54,7 @@ function buildBookMailto(data: FormData) {
 function buildConsultMailto(data: FormData) {
   const get = (key: string) => (data.get(key) as string)?.trim();
 
-  const subject = `Consult inquiry — ${get("name")}`;
+  const subject = `Consult inquiry: ${get("name")}`;
   const lines = [
     `Name: ${get("name")}`,
     `Email: ${get("email")}`,
@@ -161,7 +161,7 @@ export default function BookingForm() {
                   />
                   <span>
                     <span className="font-medium">{opt.label}</span>
-                    {" — "}
+                    {": "}
                     <span className="text-stone">{opt.hint}</span>
                   </span>
                 </label>
@@ -178,7 +178,7 @@ export default function BookingForm() {
                 name="description"
                 required
                 rows={4}
-                placeholder="The more specific, the better — composition, elements, style references."
+                placeholder="The more specific, the better: composition, elements, style references."
                 className={fieldClass}
               />
             </label>
@@ -189,7 +189,7 @@ export default function BookingForm() {
                 name="placement"
                 type="text"
                 required
-                placeholder="e.g. forearm — include a couple options if you're open"
+                placeholder="e.g. forearm; include a couple options if you're open"
                 className={fieldClass}
               />
             </label>
@@ -199,7 +199,7 @@ export default function BookingForm() {
                 Tattoo size
               </legend>
               <p className="mb-1 text-xs text-stone">
-                Rough pricing reference — a specific quote can follow.
+                Rough pricing reference: a specific quote can follow.
               </p>
               {pricingTiers.map((tier) => (
                 <label key={tier.label} className={radioRowClass}>
@@ -214,7 +214,7 @@ export default function BookingForm() {
                     <span className="font-medium">
                       {tier.label} | {tier.range}
                     </span>
-                    {" — "}
+                    {": "}
                     <span className="text-stone">{tier.hint}</span>
                   </span>
                 </label>
@@ -287,7 +287,7 @@ export default function BookingForm() {
                 className={fieldClass}
               />
               <span className="text-xs text-stone">
-                This opens your email app — attach photos there, or email
+                This opens your email app. Attach photos there, or email
                 them directly to {SITE.email}.
               </span>
             </label>
@@ -300,7 +300,7 @@ export default function BookingForm() {
             Send
           </button>
           <p className="text-xs text-stone">
-            This opens your email app with the details filled in — nothing
+            This opens your email app with the details filled in. Nothing
             is sent automatically.
           </p>
         </form>
@@ -351,7 +351,7 @@ export default function BookingForm() {
             Send
           </button>
           <p className="text-xs text-stone">
-            This opens your email app with the details filled in — nothing
+            This opens your email app with the details filled in. Nothing
             is sent automatically.
           </p>
         </form>

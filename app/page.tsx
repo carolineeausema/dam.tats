@@ -6,7 +6,7 @@ import SnapScroller from "@/components/SnapScroller";
 import { portfolioItems } from "@/lib/content";
 import { SITE } from "@/lib/site-config";
 
-// Draft copy — replace with Dylan's own phrasing before launch.
+// Draft copy, replace with Dylan's own phrasing before launch.
 export default function Home() {
   return (
     <SnapScroller>
@@ -27,10 +27,11 @@ export default function Home() {
               {SITE.tagline}
             </p>
             <h1 className="font-serif text-2xl leading-tight text-charcoal sm:text-4xl md:text-5xl">
-              Tattoos made with the same care as a day on the trail.
+              Dedicated to pushing the boundaries of art through tattoo.
             </h1>
             <p className="max-w-md text-sm text-stone sm:text-base">
-              Custom black &amp; grey and fine-line work, {SITE.location.toLowerCase()}.
+              Custom black &amp; grey and fine-line work, based in{" "}
+              {SITE.location}.
             </p>
             <div className="flex flex-row flex-wrap justify-center gap-3 md:justify-start">
               <Link
@@ -52,11 +53,12 @@ export default function Home() {
 
       <RevealSection className="flex flex-col items-center justify-center gap-6 bg-bark px-6 py-8 text-center sm:py-16">
         <p className="max-w-2xl font-serif text-2xl leading-relaxed text-cream italic sm:text-3xl">
-          &ldquo;I want every piece to feel like it belongs on you &mdash;
-          considered, not rushed.&rdquo;
+          &ldquo;Every piece is a chance to push what tattoo art can be, and
+          to give clients something that changes how they carry themselves
+          in the world.&rdquo;
         </p>
         <p className="text-sm tracking-wide text-stone uppercase">
-          &mdash; {SITE.name}
+          {SITE.name}
         </p>
       </RevealSection>
 
@@ -89,7 +91,7 @@ export default function Home() {
         </h2>
         <p className="max-w-md text-stone">
           Whether you&apos;ve got a fully formed idea or just a feeling you
-          want to turn into something &mdash; I&apos;d love to chat.
+          want to turn into something, I&apos;d love to chat.
         </p>
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link

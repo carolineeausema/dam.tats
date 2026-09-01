@@ -18,7 +18,7 @@ function clamp(value: number, min: number, max: number) {
 }
 
 // Full-screen expanded view for a portfolio piece. Supports pinch-to-zoom and
-// drag-to-pan once zoomed, plus double-tap to toggle zoom — photos here are
+// drag-to-pan once zoomed, plus double-tap to toggle zoom. Photos here are
 // detail-heavy, so this is the one place viewers need to get in close.
 export default function Lightbox({ item, onClose }: Props) {
   const [scale, setScale] = useState(1);
@@ -162,7 +162,7 @@ export default function Lightbox({ item, onClose }: Props) {
           className="w-[85vw] max-w-xl"
         >
           <ImagePlaceholder
-            label={`[Full-res photo — ${item.title}]`}
+            label={`[Full-res photo: ${item.title}]`}
             aspect={item.aspect}
             dark
           />

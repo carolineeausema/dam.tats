@@ -14,7 +14,7 @@ export default function PortfolioGrid({ items }: Props) {
 
   return (
     <>
-      {/* Once real photos replace ImagePlaceholder, use next/image here —
+      {/* Once real photos replace ImagePlaceholder, use next/image here:
           it lazy-loads below the fold by default; pass priority for the
           first row only. */}
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
