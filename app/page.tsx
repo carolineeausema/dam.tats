@@ -18,13 +18,13 @@ export default function Home() {
           height={1200}
           priority
           sizes="(min-width: 768px) 55vw, 100vw"
-          className="h-auto w-full flex-shrink-0 md:h-[100dvh] md:w-auto"
+          className="h-auto w-full flex-shrink-0 md:h-[100dvh] md:w-auto md:max-w-[50%]"
         />
         <div className="flex flex-1 flex-col items-center justify-center gap-4 px-6 py-6 text-center sm:px-10 md:items-start md:text-left">
           <p className="text-xs tracking-wide text-stone uppercase sm:text-sm">
             {SITE.tagline}
           </p>
-          <h1 className="font-serif text-lg leading-snug text-foreground sm:text-2xl md:text-3xl">
+          <h1 className="text-balance font-serif text-lg leading-snug text-foreground sm:text-2xl md:text-3xl">
             Dedicated to pushing the boundaries of art through tattoo.
           </h1>
           <div className="flex flex-row flex-wrap justify-center gap-3 md:justify-start">
