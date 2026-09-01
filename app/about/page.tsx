@@ -25,7 +25,8 @@ export default function AboutPage() {
         </div>
       </RevealSection>
 
-      <RevealSection className="flex flex-col items-center justify-center gap-6 bg-bark px-6 py-8 text-center sm:py-16">
+      <RevealSection className="flex flex-col items-center justify-center gap-4 bg-bark px-6 py-8 text-center sm:py-16">
+        <p className="text-xs tracking-wide text-stone uppercase">Bio</p>
         <p className="max-w-2xl font-serif text-lg leading-relaxed text-cream italic sm:text-2xl">
           &ldquo;Based in Sacramento, CA, Dylan approaches tattooing as a
           transformation. Every piece is a chance to push what tattoo art can
@@ -34,7 +35,10 @@ export default function AboutPage() {
         </p>
       </RevealSection>
 
-      <RevealSection className="flex flex-col items-center justify-center gap-6 px-6 py-8 text-center sm:py-16">
+      <RevealSection className="flex flex-col items-center justify-center gap-4 px-6 py-8 text-center sm:py-16">
+        <p className="text-xs tracking-wide text-stone uppercase">
+          Before Tattooing
+        </p>
         <p className="max-w-xl text-left text-sm leading-relaxed text-stone sm:text-base">
           Before tattooing, Dylan earned a BA in Philosophy and started
           working as a mountain guide for people with Type 1 diabetes in the
@@ -46,6 +50,16 @@ export default function AboutPage() {
           himself has shaped how he thinks about the body too: care,
           adaptation, and resilience are all part of what he brings to
           tattooing as a transformative process.
+        </p>
+      </RevealSection>
+
+      <RevealSection className="flex flex-col items-center justify-center gap-4 bg-bark px-6 py-8 text-center sm:py-16">
+        <p className="text-xs tracking-wide text-stone uppercase">
+          Tattoo History
+        </p>
+        <p className="max-w-xl text-left text-sm leading-relaxed text-cream sm:text-base">
+          [TODO: how Dylan got into tattooing, apprenticeship, early
+          influences, how his style has developed. In his own words.]
         </p>
       </RevealSection>
 

@@ -42,6 +42,12 @@ export default function Home() {
               Book a Session
             </Link>
           </div>
+          <a
+            href={`mailto:${SITE.email}`}
+            className="text-sm font-medium text-forest hover:text-bark"
+          >
+            {SITE.email}
+          </a>
         </div>
       </RevealSection>
 

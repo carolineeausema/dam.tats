@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import BookingForm from "@/components/BookingForm";
 import SiteFooter from "@/components/SiteFooter";
 import { SITE } from "@/lib/site-config";
@@ -12,7 +13,8 @@ export default function BookingPage() {
             Let&apos;s figure out what you want
           </h1>
           <p className="mt-2 text-stone">
-            No pressure either way, pick whichever fits.{" "}
+            Fill out what you can below, whether it&apos;s a full booking or
+            just a few questions.{" "}
             <Link
               href="/faq"
               className="font-medium text-forest hover:text-bark"
@@ -36,7 +38,9 @@ export default function BookingPage() {
           </ul>
         </div>
 
-        <BookingForm />
+        <Suspense fallback={null}>
+          <BookingForm />
+        </Suspense>
 
         <p className="mt-10 text-center text-sm text-stone">
           Prefer email? Reach me directly at{" "}

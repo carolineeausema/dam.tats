@@ -20,7 +20,7 @@ export default function Nav() {
           <Link href="/" className="font-serif text-xl text-charcoal">
             {SITE.name}
           </Link>
-          <nav className="flex items-center gap-8">
+          <nav className="flex items-center gap-6">
             {NAV_LINKS.filter((link) => link.href !== "/booking").map(
               (link) => (
                 <Link
@@ -63,11 +63,11 @@ export default function Nav() {
             <Link
               key={link.href}
               href={link.href}
-              className={`flex min-h-14 flex-1 flex-col items-center justify-center gap-0.5 text-xs transition-colors ${
+              className={`flex min-h-14 flex-1 flex-col items-center justify-center gap-0.5 px-0.5 text-[11px] transition-colors ${
                 active ? "text-forest font-medium" : "text-stone"
               }`}
             >
-              {link.label}
+              {link.shortLabel ?? link.label}
             </Link>
           );
         })}
