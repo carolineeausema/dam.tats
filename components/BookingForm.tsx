@@ -26,24 +26,43 @@ const FLEXIBILITY_OPTIONS = [
   },
 ];
 
-function buildMailto(isConsult: boolean, data: FormData) {
-  const get = (key: string) => (data.get(key) as string)?.trim();
-  const days = data.getAll("availability").join(", ");
+function formDataToPayload(isConsult: boolean, data: FormData) {
+  const get = (key: string) => (data.get(key) as string)?.trim() || undefined;
+  return {
+    isConsult,
+    name: get("name") ?? "",
+    phone: get("phone") ?? "",
+    flexibility: get("flexibility"),
+    description: get("description"),
+    placement: get("placement"),
+    size: get("size"),
+    references: get("references"),
+    availability: data.getAll("availability") as string[],
+    returning: get("returning"),
+    comments: get("comments"),
+  };
+}
 
-  const subject = `${isConsult ? "Consultation" : "Booking"} inquiry: ${get("name")}`;
+// Fallback for when the API call fails: same details, but opens the
+// visitor's own email app instead of sending automatically.
+function buildMailtoFallback(
+  isConsult: boolean,
+  payload: ReturnType<typeof formDataToPayload>,
+) {
+  const subject = `${isConsult ? "Consultation" : "Booking"} inquiry: ${payload.name}`;
   const lines = [
-    `Name: ${get("name")}`,
-    `Phone: ${get("phone")}`,
+    `Name: ${payload.name}`,
+    `Phone: ${payload.phone}`,
     "",
-    get("flexibility") && `Design flexibility: ${get("flexibility")}`,
-    get("description") && `Description: ${get("description")}`,
-    get("placement") && `Placement: ${get("placement")}`,
-    get("size") && `Size: ${get("size")}`,
-    get("references") && `References: ${get("references")}`,
+    payload.flexibility && `Design flexibility: ${payload.flexibility}`,
+    payload.description && `Description: ${payload.description}`,
+    payload.placement && `Placement: ${payload.placement}`,
+    payload.size && `Size: ${payload.size}`,
+    payload.references && `References: ${payload.references}`,
     "",
-    `Availability: ${days || "none selected"}`,
-    `Tattooed by Dylan before: ${get("returning")}`,
-    get("comments") && `Comments: ${get("comments")}`,
+    `Availability: ${payload.availability.length ? payload.availability.join(", ") : "none selected"}`,
+    `Tattooed by Dylan before: ${payload.returning}`,
+    payload.comments && `Comments: ${payload.comments}`,
   ].filter(Boolean);
 
   return `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
@@ -57,14 +76,42 @@ const sectionClass =
   "flex flex-col gap-5 border-t border-border pt-8 first:border-t-0 first:pt-0";
 const sectionHeadingClass = "font-serif text-xl text-foreground";
 
+type Status = "idle" | "submitting" | "success" | "error";
+
 export default function BookingForm() {
   const searchParams = useSearchParams();
   const [isConsult, setIsConsult] = useState(searchParams.get("consult") === "1");
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorFallbackHref, setErrorFallbackHref] = useState<string | null>(null);
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    window.location.href = buildMailto(isConsult, data);
+    setStatus("submitting");
+    const payload = formDataToPayload(isConsult, new FormData(e.currentTarget));
+
+    try {
+      const res = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error();
+      setStatus("success");
+    } catch {
+      setErrorFallbackHref(buildMailtoFallback(isConsult, payload));
+      setStatus("error");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div className="rounded-2xl border border-border bg-stone-light/20 p-6 text-center">
+        <p className="font-serif text-xl text-foreground">Sent!</p>
+        <p className="mt-2 text-sm text-stone">
+          Thanks for reaching out. Dylan will get back to you soon.
+        </p>
+      </div>
+    );
   }
 
   return (
@@ -177,9 +224,9 @@ export default function BookingForm() {
             className={fieldClass}
           />
           <span className="text-xs text-stone">
-            This opens your email app. Attach photos there, or email them
-            directly to {SITE.email}. Fair warning: AI tattoos aren&apos;t
-            realistic, but can be used for reference.
+            Paste a link. For photos, email them directly to {SITE.email}.
+            Fair warning: AI tattoos aren&apos;t realistic, but can be used
+            for reference.
           </span>
         </label>
       </div>
@@ -243,14 +290,29 @@ export default function BookingForm() {
       <div className="flex flex-col gap-3 border-t border-border pt-8">
         <button
           type="submit"
-          className="self-start rounded-full bg-forest px-6 py-3 text-sm font-medium text-cream transition-colors hover:bg-bark"
+          disabled={status === "submitting"}
+          className="self-start rounded-full bg-forest px-6 py-3 text-sm font-medium text-cream transition-colors hover:bg-bark disabled:opacity-60"
         >
-          Send
+          {status === "submitting" ? "Sending…" : "Send"}
         </button>
-        <p className="text-xs text-stone">
-          This opens your email app with the details filled in. Nothing is
-          sent automatically.
-        </p>
+        {status === "error" ? (
+          <p className="text-xs text-stone">
+            Something went wrong sending that.{" "}
+            {errorFallbackHref && (
+              <a
+                href={errorFallbackHref}
+                className="font-medium text-link hover:text-link-hover"
+              >
+                Open it in your email app instead
+              </a>
+            )}
+            .
+          </p>
+        ) : (
+          <p className="text-xs text-stone">
+            This sends directly to Dylan, no email app required.
+          </p>
+        )}
       </div>
     </form>
   );
