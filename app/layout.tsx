@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Rubik_Broken_Fax } from "next/font/google";
+import { Iceberg, Inter } from "next/font/google";
 import Nav from "@/components/Nav";
 import { SITE } from "@/lib/site-config";
 import "./globals.css";
@@ -10,9 +10,9 @@ const inter = Inter({
 });
 
 // Heading font site-wide (mapped to the `font-serif` utility in
-// globals.css). Distressed/glitch display face, bold and rugged.
-const rubikBrokenFax = Rubik_Broken_Fax({
-  variable: "--font-rubik-broken-fax",
+// globals.css). Angular, condensed display face.
+const iceberg = Iceberg({
+  variable: "--font-iceberg",
   weight: "400",
   subsets: ["latin"],
 });
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${rubikBrokenFax.variable} h-full antialiased`}
+      className={`${inter.variable} ${iceberg.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>

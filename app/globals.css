@@ -60,10 +60,10 @@
   --color-link: var(--link);
   --color-link-hover: var(--link-hover);
 
-  /* "font-serif" utility now maps to Rubik Broken Fax, used for every
-     heading site-wide. Name is a holdover from when Fraunces (an actual
-     serif) held this slot; kept as-is so call sites didn't need touching. */
-  --font-serif: var(--font-rubik-broken-fax);
+  /* "font-serif" utility now maps to Iceberg, used for every heading
+     site-wide. Name is a holdover from when Fraunces (an actual serif)
+     held this slot; kept as-is so call sites didn't need touching. */
+  --font-serif: var(--font-iceberg);
   --font-sans: var(--font-inter);
 }
 
