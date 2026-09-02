@@ -77,8 +77,7 @@ body {
    set since scroll-snap-type/align need to travel together as a pair. */
 /* On mobile the bottom nav is `fixed`, so the snap-scroller is sized to the
    area above it (not the full viewport); otherwise sections would run
-   underneath the nav instead of stopping short of it. Desktop's nav is a
-   normal top header, not an overlay, so it gets the full viewport back. */
+   underneath the nav instead of stopping short of it. */
 .snap-scroller {
   height: calc(100dvh - 3.5rem - env(safe-area-inset-bottom, 0px));
   overflow-y: auto;
@@ -88,8 +87,15 @@ body {
 }
 
 @media (min-width: 768px) {
+  /* Desktop's header is `sticky`, not `fixed`, so unlike the mobile nav it
+     still occupies flow height above <main> instead of overlaying it. A
+     bare 100dvh here left the outer document exactly that much taller than
+     the viewport, and overscroll-behavior:contain (above) stops that
+     leftover scroll from ever being reachable by normal wheel/trackpad
+     input, permanently hiding the bottom of each snap-scrolled section
+     behind the header's own height. Reserve real space for it instead. */
   .snap-scroller {
-    height: 100dvh;
+    height: calc(100dvh - 5rem);
   }
 }
 
@@ -97,6 +103,17 @@ body {
   scroll-snap-align: start;
   scroll-snap-stop: always;
   min-height: 100%;
+}
+
+/* For trailing content after the last .snap-section (e.g. a footer) that
+   should be reachable by scrolling, but shouldn't stretch to fill a full
+   screen like a narrative beat does. With scroll-snap-type: mandatory,
+   any point that isn't snap-aligned is unreachable as a resting position:
+   the browser snaps back to the last real section instead, so this needs
+   its own (height-less) snap point to actually be scrollable to and
+   stayed on rather than sprung back from. */
+.snap-trailing {
+  scroll-snap-align: start;
 }
 
 /* Gentle fade/slide-in as a section snaps into view. */

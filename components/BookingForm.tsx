@@ -108,7 +108,7 @@ export default function BookingForm() {
       <div className="rounded-2xl border border-border bg-stone-light/20 p-6 text-center">
         <p className="font-serif text-xl text-foreground">Sent!</p>
         <p className="mt-2 text-sm text-stone">
-          Thanks for reaching out. Dylan will get back to you soon.
+          Thanks for reaching out. I&apos;ll get back to you soon.
         </p>
       </div>
     );
@@ -258,7 +258,7 @@ export default function BookingForm() {
 
         <fieldset className="flex flex-col gap-3">
           <legend className="mb-1 text-sm text-foreground">
-            Has Dylan tattooed you before?
+            Have I tattooed you before?
           </legend>
           <div className="flex gap-4">
             {["Yes", "No"].map((opt) => (
@@ -310,7 +310,7 @@ export default function BookingForm() {
           </p>
         ) : (
           <p className="text-xs text-stone">
-            This sends directly to Dylan, no email app required.
+            This sends directly to me, no email app required.
           </p>
         )}
       </div>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import RevealSection from "@/components/RevealSection";
+import SiteFooter from "@/components/SiteFooter";
 import SnapScroller from "@/components/SnapScroller";
 import { portfolioItems } from "@/lib/content";
 import { SITE } from "@/lib/site-config";
@@ -18,7 +19,7 @@ export default function Home() {
           height={1200}
           priority
           sizes="(min-width: 768px) 55vw, 100vw"
-          className="h-auto w-full flex-shrink-0 object-contain md:h-[100dvh] md:w-auto md:max-w-[42%] lg:max-w-[50%]"
+          className="h-auto w-full flex-shrink-0 object-contain md:h-[calc(100dvh-5rem)] md:w-auto md:max-w-[42%] lg:max-w-[50%]"
         />
         <div className="flex flex-1 flex-col items-start justify-center gap-4 px-6 py-6 text-left sm:px-10">
           <p className="text-xs tracking-wide text-stone uppercase sm:text-sm">
@@ -53,37 +54,20 @@ export default function Home() {
       <RevealSection className="flex flex-col items-start justify-center gap-4 bg-forest px-6 py-8 text-left sm:px-10 sm:py-16">
         <p className="text-xs tracking-wide text-stone uppercase">Bio</p>
         <p className="max-w-2xl font-sans text-lg leading-relaxed text-cream sm:text-2xl">
-          Based in Sacramento, CA, Dylan approaches tattooing as a
-          transformation. Every piece is a chance to push what tattoo art can
-          be, and to give clients something that changes how they carry
-          themselves in the world.
+          Based in Sacramento, CA, I approach tattooing as a transformation.
+          Every piece is a chance to push what tattoo art can be, and to give
+          clients something that changes how they carry themselves in the
+          world.
         </p>
-      </RevealSection>
-
-      <RevealSection className="flex flex-col items-start justify-center gap-4 px-6 py-8 text-left sm:px-10 sm:py-16">
-        <p className="text-xs tracking-wide text-stone uppercase">
-          Before Tattooing
+        <p className="max-w-2xl font-sans text-lg leading-relaxed text-cream sm:text-2xl">
+          Before tattooing, I earned a BA in Philosophy and started working as
+          a mountain guide for people with Type 1 diabetes in the Sierra
+          Nevada. Guiding taught me to pay close attention, go somewhere new,
+          and come back different, which isn&apos;t so far from how I think
+          about a tattoo. Living with Type 1 diabetes myself has shaped how I
+          think about the body too: care, adaptation, and resilience are all
+          part of what I bring to tattooing as a transformative process.
         </p>
-        <p className="max-w-xl text-left text-sm leading-relaxed text-stone sm:text-base">
-          Before tattooing, Dylan earned a BA in Philosophy and started
-          working as a mountain guide for people with Type 1 diabetes in the
-          Sierra Nevada. Guiding has taught him to pay close attention, go
-          somewhere new, and come back different, which isn&apos;t so far
-          from how he thinks about a tattoo.
-
-          Living with Type 1 diabetes
-          himself has shaped how he thinks about the body too: care,
-          adaptation, and resilience are all part of what he brings to
-          tattooing as a transformative process.
-        </p>
-      </RevealSection>
-
-      <RevealSection className="flex flex-col items-start justify-center gap-4 bg-bark px-6 py-8 text-left sm:px-10 sm:py-16">
-        <p className="text-xs tracking-wide text-stone uppercase">
-          Tattoo History
-        </p>
-        <p className="max-w-xl text-left text-sm leading-relaxed text-cream sm:text-base">
-          Dylan got started at Hard2Love Tattoo in Sacramento, CA, then moved to Wild Soul Tattoo. He&apos;s been tattooing for a little over 2 years, and is most interested in biomechanical and realism work. ༼;´༎ຶ ۝ ༎ຶ༽       </p>
       </RevealSection>
 
       <RevealSection className="flex flex-col justify-center gap-8 px-6 py-8 sm:px-10 sm:py-16">
@@ -139,9 +123,20 @@ export default function Home() {
           width={800}
           height={1200}
           sizes="(min-width: 768px) 55vw, 100vw"
-          className="h-[34dvh] w-auto flex-shrink-0 object-contain md:h-[100dvh] md:w-auto md:max-w-[50%]"
+          className="h-[34dvh] w-auto flex-shrink-0 object-contain md:h-[calc(100dvh-5rem)] md:w-auto md:max-w-[50%]"
         />
       </RevealSection>
+
+      {/* Trailing content: sits inside the same scrollable container as
+          the sections above (rather than after it in the DOM) so it's
+          reachable by scrolling past the last section, instead of
+          requiring a separate outer-page scroll that .snap-scroller's
+          overscroll-behavior:contain would block. Needs its own (unstretched)
+          snap point via snap-trailing, or mandatory snap springs back to
+          the last real section instead of resting here. */}
+      <div className="snap-trailing">
+        <SiteFooter />
+      </div>
     </SnapScroller>
   );
 }
